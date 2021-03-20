@@ -1,1 +1,5 @@
-The quick brown fox jumps over the lazy dog
+let userData = [
+    ['Yamada', 28, 'Tokyo'],
+    ['Suzuki', 35, 'Fukuoka'],
+    ['Honda', 24, 'Sendai']
+  ];
