@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const port = 5000 || process.env.PORT
+const port = 5000 || process.env.PORT;
 //port = process.env.PORT || 80
 const line = require('@line/bot-sdk')
 const { text } = require("express")
@@ -12,12 +12,12 @@ const config = {
 
 // 8888番ポートでlisten
 app.listen(port, () => {
-    console.log("Node.js app listening ")    
+    console.log("Node.js app listening ");    
 })
 
 //server.listen(process.env.PORT || 3000);
 
-const client = new line.Client(config)
+const client = new line.Client(config);
 
 
 //後者でjsonがパース(jsとして使いこなす)として読み込む
