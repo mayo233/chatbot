@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
-const port = 8888
+const port = 5000 || process.env.PORT
+//port = process.env.PORT || 80
 const line = require('@line/bot-sdk')
 const { text } = require("express")
 
@@ -9,12 +10,13 @@ const config = {
     channelSecret: 'b6c2b7f3c4f8e320befbd94dc34c05d7',
 }
 
-
 // 8888番ポートでlisten
 app.listen(port, () => {
-    console.log("Node.js app listening at http://localhost:" + port)
-    
+    console.log("Node.js app listening ")    
 })
+
+//server.listen(process.env.PORT || 3000);
+
 const client = new line.Client(config)
 
 
