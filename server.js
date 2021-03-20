@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
-const port = 5000 || process.env.PORT;
+const port = 5000 || process.env.PORT
+console.log(process.env.PORT)
 //port = process.env.PORT || 80
 const line = require('@line/bot-sdk')
 const { text } = require("express")
@@ -9,7 +10,7 @@ const config = {
     channelAccessToken: '4W5bMl4rSidUBjRxhimTbwhq2ccFF9AK12kK/jnazq/qrwQYQp4C+os03YHr1t7eMOrUPBrp1yiuhNgJCMKrNsMxwB5kl+pzVSQlXvCyTImHrCJvE5DUq5v2bBvxbUmaAxFmYW0XFqXeQWzdO28o+gdB04t89/1O/w1cDnyilFU=',
     channelSecret: 'b6c2b7f3c4f8e320befbd94dc34c05d7',
 }
-
+//3/20日　herokuにてプロイした時に環境変数
 // 8888番ポートでlisten
 app.listen(port, () => {
     console.log("Node.js app listening ");    
