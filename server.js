@@ -1,7 +1,13 @@
 const express = require("express")
 const app = express()
+require('dotenv').config();
+
+const value = process.env.TEST_VALUE;
+
+console.log(value);
 const port = 5000 || process.env.PORT
-console.log(process.env.PORT)
+//const port=app.set('port',(process.env.PORT || 3000));
+//console.log(process.env.PORT)
 //port = process.env.PORT || 80
 const line = require('@line/bot-sdk')
 const { text } = require("express")
