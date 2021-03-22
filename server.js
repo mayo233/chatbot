@@ -2,10 +2,10 @@ const express = require("express")
 const app = express()
 require('dotenv').config();
 
-const value = process.env.TEST_VALUE;
+const port = process.env.TEST_VALUE || 5000;
 
-console.log(value);
-const port = 5000 || process.env.PORT
+console.log(port);
+//const port = 5000 || process.env.PORT
 //const port=app.set('port',(process.env.PORT || 3000));
 //console.log(process.env.PORT)
 //port = process.env.PORT || 80
@@ -78,7 +78,7 @@ function search(word){
 }
 
 // webhook設定
-app.post('/webhook', line.middleware(config), (req, res) => {
+app.post('/callback', line.middleware(config), (req, res) => {
     const events = req.body.events
     console.log(events)
     //res.sendStatus(200);
