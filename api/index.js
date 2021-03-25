@@ -1,16 +1,10 @@
 const express = require("express")
 const app = express()
-require('dotenv').config();
-
-const port = process.env.TEST_VALUE || 5000;
-
-console.log(port);
-//const port = 5000 || process.env.PORT
-//const port=app.set('port',(process.env.PORT || 3000));
+const PORT =  8888|| process.env.PORT
 //console.log(process.env.PORT)
-//port = process.env.PORT || 80
 const line = require('@line/bot-sdk')
 const { text } = require("express")
+
 
 const config = {
     channelAccessToken: '4W5bMl4rSidUBjRxhimTbwhq2ccFF9AK12kK/jnazq/qrwQYQp4C+os03YHr1t7eMOrUPBrp1yiuhNgJCMKrNsMxwB5kl+pzVSQlXvCyTImHrCJvE5DUq5v2bBvxbUmaAxFmYW0XFqXeQWzdO28o+gdB04t89/1O/w1cDnyilFU=',
@@ -18,11 +12,9 @@ const config = {
 }
 //3/20日　herokuにてプロイした時に環境変数
 // 8888番ポートでlisten
-app.listen(port, () => {
-    console.log("Node.js app listening ");    
-})
-
-//server.listen(process.env.PORT || 3000);
+//app.listen(port, () => {
+  //  console.log("Node.js app listening ");    
+//})
 
 const client = new line.Client(config);
 
@@ -44,6 +36,7 @@ const handleEvent =async (event)=>{
 
 //検索する関数
 function search(word){      
+    console.log("aaaa");
     let userData = [
         ['設定値', 'desired value'],
         ['斜めの角度', 'slanting angle'],
@@ -78,9 +71,12 @@ function search(word){
 }
 
 // webhook設定
-app.post('/callback', line.middleware(config), (req, res) => {
+app.post('/webhook', line.middleware(config), (req, res) => {
     const events = req.body.events
     console.log(events)
     //res.sendStatus(200);
     events.map(handleEvent) // 追記
 })
+
+(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT);
+console.log(`Server running at ${PORT}`);
