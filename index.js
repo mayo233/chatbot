@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const PORT =  8888|| process.env.PORT
+const port =  8888|| process.env.PORT
 //console.log(process.env.PORT)
 const line = require('@line/bot-sdk')
 const { text } = require("express")
@@ -12,9 +12,9 @@ const config = {
 }
 //3/20日　herokuにてプロイした時に環境変数
 // 8888番ポートでlisten
-//app.listen(port, () => {
-  //  console.log("Node.js app listening ");    
-//})
+app.listen(port, () => {
+    console.log("Node.js app listening ");    
+})
 
 const client = new line.Client(config);
 
@@ -78,5 +78,5 @@ app.post('/webhook', line.middleware(config), (req, res) => {
     events.map(handleEvent) // 追記
 })
 
-(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT);
-console.log(`Server running at ${PORT}`);
+//(process.env.NOW_REGION) ? module.exports = app : app.listen(PORT);
+//console.log(`Server running at ${PORT}`);
